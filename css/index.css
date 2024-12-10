@@ -11,10 +11,11 @@ header{
     width:100%;
     height:70px;
     /* background-color:#ccc; */
+    overflow: hidden;
 }
 .down{
     background-color:#efe4d4;
-    box-shadow:0px 0px 5px var(--fontcolor);
+    box-shadow:0px 0px 5px var(--fontbrown);
 }
 
 /* 로고 */
@@ -47,9 +48,8 @@ header li:hover a:after {
     transition:0.7s;
     width: 100%;
 }
-header i{
-    font-size:40px;
-    cursor:pointer;
+.close{
+    display:none;
 }
 
 /* ------- 비주얼  ------- */
@@ -81,13 +81,13 @@ header i{
     z-index:-1;
     width:200px;
     height:200px;
-    background:radial-gradient(var(--maincolor),transparent, transparent);
+    background:radial-gradient(var(--maingreen),transparent, transparent);
 }
 #visual span{
     margin-left:50px;
 }
 /* 사진 */
-.vis_profile{
+.vis-profile{
     z-index:0;
     position:absolute;
     left:20%;
@@ -109,7 +109,7 @@ header i{
     bottom:-10vw;
     width:20vw;
     height:30vw;
-    background:no-repeat url(../img/vis_text.svg) center;
+    background:no-repeat url(../img/vis-text.svg) center;
     animation:smallcircle 2s infinite alternate-reverse linear;
 }
 @keyframes smallcircle {
@@ -124,7 +124,7 @@ header i{
     right:5vw;
     width:30vw;
     height:45vw;
-    background-color:var(--maincolor);
+    background-color:var(--maingreen);
     border-radius:25vw 10vw;
     /* transform:rotate(30deg) translate(-20%, 0%); */
     animation:bigcircle 3s infinite alternate linear;
@@ -140,21 +140,20 @@ section{
     width:100%;
     height:100vh;
 }
-/* section h2{
-    font-size:90px;
+section h2{
     font-size:10vh;
-} */
-#con1_intro{
+}
+#con1-intro{
     height:200vh;
 }
 /* --- 가치관 --- */
-.intro_beliefs{
+.intro-beliefs{
     position:relative;
     width:100%;
     height:100vh;
     overflow: hidden;
 }
-.intro_beliefs div{
+.intro-beliefs div{
     width:100%;
     height:100vh;
     background-repeat:no-repeat;
@@ -162,7 +161,7 @@ section{
     background-size:cover;
     background-attachment:fixed;
 }
-.intro_beliefs h2{
+.intro-beliefs h2{
     position:absolute;
     top:50%;
     left:50%;
@@ -171,33 +170,30 @@ section{
     text-align:center;
     font-size:5vw;
 }
-.intro_beliefs span{
+.intro-beliefs span{
     font-family:'InkLipquid';
     font-weight: normal;
     color:#739223;
 }
-.intro_bg1{
+.intro-bg1{
     transition:3s;
-    background-image:url(../img/intro_bg1.jpg);
+    background-image:url(../img/intro-bg1.jpg);
 }
-.intro_bg2{
-    background-image:url(../img/intro_bg2.jpg);
+.intro-bg2{
+    background-image:url(../img/intro-bg2.jpg);
 }
 /* 배경변화 */
 .changebg{
     margin-bottom:-100vh;
 }
 /* --- 프로필 --- */
-.intro_profile{
+.intro-profile{
     position:relative;
     padding-top:70px;
     box-sizing: border-box;
     width:100%;
     height:100vh;
     /* background-color:#ccc; */
-}
-.intro_profile h2{
-    font-size:12vh;
 }
 .info{
     position:relative;
@@ -219,7 +215,7 @@ section{
     display:block;
     width:10vh;
     height:10vh;
-    background-image:url(../img/intro_flower.svg);
+    background-image:url(../img/intro-flower.svg);
     background-repeat:no-repeat;
     animation:flower 2.5s infinite alternate linear;
 }
@@ -235,7 +231,7 @@ section{
     display:block;
     width:70vh;
     height:50vh;
-    background-image:url(../img/intro_frame.png);
+    background-image:url(../img/intro-frame.png);
     background-repeat:no-repeat;
     background-size:contain;
 }
@@ -264,6 +260,7 @@ section{
     color:#efe4d4;
 }
 .title{
+    z-index:15;
     position:absolute;
     left:40px;
     bottom:40px;
@@ -320,7 +317,7 @@ section{
     position: relative;
     width: 5px;
     height: 0;
-    background-color: var(--fontcolor);
+    background-color: var(--fontbrown);
     border-radius: 5px;
     transition: height 1s ease-out;
 }
@@ -332,7 +329,7 @@ section{
     bottom: -10px;
     width: 5px;
     height:0px; /* 초기 height 설정 */
-    background-color: var(--fontcolor);
+    background-color: var(--fontbrown);
     border-radius: 5px;
     transform: rotate(-45deg);
     transition:height 2s, opacity 3s;
@@ -343,12 +340,310 @@ section{
     height: 100%;
 }
 .career-history .line.line-active::after {
-   height:60px;
-   opacity:1;
+    height:60px;
+    opacity:1;
 }
 
 /* ------- (컨테이너2) 자기소개 ------- */
+#con2-web{
+    display:flex;
+    /* justify-content:space-between; */
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    /* padding:0% 5%;
+    box-sizing: border-box; */
+}
+/* 이동 버튼 */
+.page{
+    width:100%;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    display:flex;
+    justify-content:space-between;
+    padding:0% 5%;
+    box-sizing: border-box;
+}
+.prev, .next{
+    width:3vw;
+    /* cursor:pointer; */
+}
+.prev img, .next img{
+    width:100%;
+}
+/* 중앙 컨텐츠 */
+.center{
+    position:relative;
+    width:70vh;
+    height:70vh;
+}
+/* --- 이미지 --- */
+.center .img-list{
+    z-index:10;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    height:100%;
+}
+.center .img-list li {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-60deg) scale(0.8);
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease;
 
+}
+.center .img-list li.active {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    opacity: 1;
+    z-index: 1; /* 활성 슬라이드를 위로 표시 */
+}
+.center .img-list img{
+    width:50vh;
+    /* height:110%; */
+}
+/* --- 배경 --- */
+.centerbg{
+    width:100%;
+    height:100%;
+}
+.centerbg li{
+    z-index:5;
+    position:absolute;
+    top:50%;
+    left:50%;
+    opacity:0;
+    transform:translate(-50%, -50%) scale(0.7);
+    transition:1s;
+    width:100%;
+    height:100%;
+    border-radius:50%;
+}
+.centerbg li:nth-child(1){
+    background-color:var(--maingreen);
+}
+.centerbg li:nth-child(2){
+    background-color:var(--lightbrown);
+}
+.centerbg li:nth-child(3){
+    background-color:var(--darkbrown);
+}
+.centerbg li.active{
+    opacity:1;
+    transform:translate(-50%, -50%) scale(1);
+}
+/* --- 사이트 상세 정보 --- */
+#con2-web .siteinfo{
+    z-index:10;
+    position:absolute;
+    right:-18vw;
+    top:0;
+    bottom:auto;
+    width:18vw;
+}
+#con2-web .siteinfo span{
+    font-weight:bold;
+}
+#con2-web .siteinfo h3{
+    margin-bottom:10px;
+}
+#con2-web .siteinfo .detail li{
+    width:100%;
+    margin-bottom:3px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+.siteinfo > li {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 1s ease-in-out;
+}
+.siteinfo > li.active {
+    opacity: 1;
+    position: relative;
+}
+/* ------- (컨테이너3) 의뢰하기 ------- */
+#con3-contact{
+    padding-top:10vh;
+    box-sizing:border-box;
+    overflow:hidden;
+}
+#con3-contact h2{
+    z-index:5;
+    text-align:center;
+}
+.wrap{
+    position:absolute;
+    bottom:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    height:80vh;
+}
+.envelope::before{
+    content:"";
+    z-index:15;
+    position:absolute;
+    left:50%;
+    bottom:-10px;
+    transform:translateX(-50%);
+    width:50vh;
+    height:100%;
+    background-image: url(../img/envelope-front.svg);
+    background-position:bottom;
+    background-repeat:no-repeat;
+    background-size:contain;
+}
+.envelope{
+    position:relative;
+    width:40vh;
+    height:40vh;
+}
+.more{
+    position:absolute;
+    top:-20px;
+    left:50%;
+    transform:translateX(-50%);
+    /* text-align:center; */
+    display:flex;
+}
+.more span{
+    display:block;
+    opacity:0;
+}
+.more span:nth-child(4){
+    margin-right:5px;
+}
+.more span.on{
+    opacity:1;
+    transform:translateY(-10%) skew(-0.5deg);
+    transition:0.5s;
+}
+.envelope::after{
+    content:"";
+    z-index:5;
+    position:absolute;
+    left:50%;
+    bottom:-10px;
+    transform:translateX(-50%);
+    width:50vh;
+    height:100%;
+    background-image: url(../img/envelope-back.svg);
+    background-position:bottom;
+    background-repeat:no-repeat;
+    background-size:contain;
+}
+.letter{
+    z-index:10;
+    position: absolute;
+    padding-top:5vh;
+    box-sizing: border-box;
+    width:40vh;
+    height:100%;
+    background-color:#fff;
+    text-align:center;
+    /* animation: 20s linear;
+    animation-delay:10s; */
+    transform: translateY(-50%);
+    overflow:hidden;
+    /* transition:1s; */
+}
+/* @keyframes letter{
+    from{transform: translateY(-30vh);}
+    to{transform: translateY(0);}
+} */
+.letter h3{
+    /* position:absolute;
+    left:50%;
+    bottom:10%;
+    transform:translateX(-50%); */
+    font-size:30px;
+    font-family:'InkLipquid';
+    font-weight:normal;
+    width:100%;
+    margin-bottom:5vh;
+}
+.letter dl{
+    margin-bottom:10px;
+    /* font-size:3vh; */
+}
+.letter dt{
+    font-family:'NanumSquareBold';
+}
+/* 도형들 */
+.diagram-box{
+    z-index:-1;
+    position:absolute;
+    top:0;
+    left:-10px;
+    width:50vh;
+    height:50vh;
+}
+.empty-circle{
+    position: absolute;
+    z-index:1;
+    left:10vw;
+    bottom:0;
+    width:20vw;
+    height:20vw;
+    border:3vw solid #85a338;
+    box-sizing:border-box;
+    border-radius:50%;
+    animation:abovecir 3s ease infinite alternate ;
+}
+@keyframes abovecir {
+    from{transform:translateY(10%)}
+    to{transform:translateY(-10%)}
+    /* from{transform:translate(0%, 0%)}
+    to{transform:translate(50%, -50%)} */
+}
+/* .st0{
+    fill:none;stroke:#58534B;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;
+    animation: dash 10s linear infinite;
+} */
+.st1{
+    fill:none;stroke:var(--lightbrown);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:12.0232,12.0232;
+    animation: dash 10s linear infinite;
+}
+@keyframes dash {
+    from{stroke-dashoffset: 403};
+    to{stroke-dashoffset: 0};
+}
+.full-circle{
+    position:absolute;
+    right:-35vw;
+    bottom:-30vw;
+    width:70vw;
+    height:60vw;
+    border-radius:45%;
+    background-color:var(--darkbrown);
+    animation:cir 10s linear infinite;
+}
+@keyframes cir {
+    from{transform:rotate(0)}
+    to{transform:rotate(180deg)}
+}
+/* ------- 푸터 ------- */
+footer{
+    width:100%;
+    height:100px;
+    background-color:#524839;;
+    /* --fontbrown:#48443e;
+    --darkbrown:#66563c; */
+    color:#fff;
+    text-align:center;
+    line-height:100px;
+}
 
 
 /* =========== 태블릿 =========== */
@@ -369,8 +664,10 @@ section{
     header li{
         cursor:pointer;
     }
-    header i{
-        font-size:30px;
+    .close{
+        display:block;
+        font-size:25px;
+        color:var(--fontbrown);
     }
     /* ------- 비주얼 ------- */
     #visual h2{
@@ -385,7 +682,7 @@ section{
         width:20vh;
         height:30vh;
         transform:rotate(-60deg);
-        background:no-repeat url(../img/vis_text.svg) center;
+        background:no-repeat url(../img/vis-text.svg) center;
     
     }
     .green{
@@ -396,28 +693,31 @@ section{
         right:5vw;
         width:30vh;
         height:45vh;
-        background-color:var(--maincolor);
+        background-color:var(--maingreen);
         border-radius:25vh 10vh;
     }
     /* ------- (컨테이너1) 자기소개 ------- */
-    .intro_bg1{
-        background-image:url(../img/intro_bg1_mb.jpg);
+    section h2{
+        font-size:8vw;
     }
-    .intro_bg2{
-        background-image:url(../img/intro_bg2_mb.jpg);
+    section li{
+        font-size:14px;
+    }
+    .intro-bg1{
+        background-image:url(../img/intro-bg1-mb.jpg);
+    }
+    .intro-bg2{
+        background-image:url(../img/intro-bg2-mb.jpg);
     }
     /* --- 프로필 --- */
-    .intro_profile{
+    .intro-profile{
         padding-top:50px;
     }
-    .intro_profile{
+    .intro-profile{
         position:relative;
         padding-top:50px;
         box-sizing: border-box;
         width:100%;
-    }
-    .intro_profile h2{
-        font-size:9vw;
     }
     .info{
         position:absolute;
@@ -449,7 +749,7 @@ section{
         color:#efe4d4;
     }
     .title{
-        position:absolute;
+        /* position:absolute; */
         left:40px;
         top:10vh;
         /* bottom:auto; */
@@ -469,6 +769,25 @@ section{
     .career-history dl dd{
         display:none;
     }
+
+    /* ------- (컨테이너2) 자기소개 ------- */
+    /* 중앙 컨텐츠 */
+    .center{
+        margin-top:10vh;
+        width:60vh;
+        height:60vh;
+    }
+    #con2-web .siteinfo{
+        right:-18vw;
+        top:auto;
+        bottom:-10vh;
+        /* width:50%; */
+        /* background-color:#ccc; */
+    }
+    .center .img-list img{
+        width:45vh;
+        /* height:110%; */
+    }
 }
 
 
@@ -476,9 +795,9 @@ section{
 /* =========== 모바일 =========== */
 @media(max-width:800px){
     /* ------- 헤더 ------- */
-    header{
+    /* header{
         padding:10px;
-    }
+    } */
     /* .down{
         bottom:0;
     } */
@@ -491,7 +810,7 @@ section{
         width:20vh;
         height:30vh;
         transform:rotate(-60deg);
-        background:no-repeat url(../img/vis_text.svg) center;
+        background:no-repeat url(../img/vis-text.svg) center;
     
     }
     .green{
@@ -502,24 +821,27 @@ section{
         right:5vw;
         width:30vh;
         height:45vh;
-        background-color:var(--maincolor);
+        background-color:var(--maingreen);
         border-radius:25vh 10vh;
     }
     /* ------- (컨테이너1) 자기소개 ------- */
-    .intro_beliefs h2{
+    .intro-beliefs h2{
         font-size:5.5vw;
     }
+    section li{
+        font-size:13px;
+    }
     /* --- 프로필 --- */
-    .intro_profile{
+    .intro-profile{
         padding-top:50px;
     }
-    /* .intro_profile{
+    /* .intro-profile{
         position:relative;
         padding-top:50px;
         box-sizing: border-box;
         width:100%;
     }
-    .intro_profile h2{
+    .intro-profile h2, #con2-web h2{
         font-size:9vw;
     }*/
     .info{
@@ -544,5 +866,113 @@ section{
     .career-history ul{
         margin-top:20vh;
         height:40vh;
+    }
+    /* ------- (컨테이너2) 자기소개 ------- */
+    /* 이동 버튼 */
+    .page{
+        z-index:90;
+        top:auto;
+        bottom:40px;
+        right:0;
+        justify-content:center;
+        align-items:auto;
+        width:200px;
+    }
+    .prev, .next{
+        width:40px;
+        /* height:40px; */
+        padding:10px;
+        box-sizing:border-box;
+        /* cursor:pointer; */
+    }
+    .siteinfo{
+        display:none;
+    }
+    /* 중앙 컨텐츠 */
+    .center{
+        margin-top:10vh;
+        width:45vh;
+        height:45vh;
+    }
+    #con2-web .siteinfo{
+        right:-20vw;
+    }
+    /* ------- (컨테이너3) 의뢰하기 ------- */
+    /* #con3-contact{
+        padding-top:10vh;
+        box-sizing:border-box;
+    }
+    #con3-contact h2{
+        text-align:center;
+    } */
+    .wrap{
+        position:absolute;
+        bottom:0;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        width:100%;
+        height:80vh;
+    }
+    .envelope::before{
+        content:"";
+        z-index:15;
+        position:absolute;
+        left:50%;
+        bottom:-10px;
+        transform:translateX(-50%);
+        width:55vw;
+        height:100%;
+        background-image: url(../img/envelope-front.svg);
+        background-position:bottom;
+        background-repeat:no-repeat;
+        background-size:contain;
+    }
+    .envelope{
+        position:relative;
+        width:55vw;
+        height:55vw;
+    }
+    .envelope::after{
+        content:"";
+        z-index:5;
+        position:absolute;
+        left:50%;
+        bottom:-10px;
+        transform:translateX(-50%);
+        width:55vw;
+        height:100%;
+        background-image: url(../img/envelope-back.svg);
+        background-position:bottom;
+        background-repeat:no-repeat;
+        background-size:contain;
+    }
+    .letter{
+        /* z-index:10;
+        position: absolute; */
+        left:2.5vw;
+        /* transform:translateX(-50%); */
+        padding-top:5vw;
+        /* padding-top:20px;
+        box-sizing: border-box; */
+        width:50vw;
+        /* height:100%; */
+        /* background-color:#fff;
+        text-align:center; */
+    }
+    @keyframes letter{
+        from{transform: translateY(-30vh);}
+        to{transform: translateY(-0);}
+    }
+    .letter h3{
+        font-size:30px;
+        margin-bottom:5vw;
+    }
+    .letter dl{
+        margin-bottom:10px;
+        /* font-size:3vh; */
+    }
+    .letter dt{
+        font-family:'NanumSquareBold';
     }
 }

@@ -1,0 +1,58 @@
+@charset "utf-8";
+/* reset */
+*{margin:0; padding:0;}
+ul{
+    list-style:none;
+    padding:0;
+}
+a{
+    display:block;
+    width:100%;
+    height:100%;
+    text-decoration:none;
+    cursor:pointer;
+}
+body{
+    transition:0.5s;
+    background-color:#efe4d4;
+    font-family:'NanumSquare';
+    overflow-x:hidden;
+}
+a, p, h2, h3, h4, h5, h6, ul, dl, li, dd, dt{
+    transform:skew(-0.5deg);
+    color:var(--fontbrown);
+}
+h2 span{
+    font-family:'InkLipquid';
+    font-weight: normal;
+    color:var(--maingreen);
+}
+
+/* font */
+@font-face {
+    font-family: 'InkLipquid';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/InkLipquid.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+
+/* 
+폰트 이름 모음
+font-family: 'NanumSquareLight';
+font-family: 'NanumSquare';
+font-family: 'NanumSquareBold';
+font-family: 'NanumSquareExtraBold';
+font-family: 'NanumSquareAcb';
+font-family: 'NanumSquareAceb';
+font-family: 'NanumSquareAcl';
+font-family: 'NanumSquareAcr';
+
+*/
+
+:root{
+    --maingreen:#739223;
+    --fontbrown:#48443e;
+    --darkbrown:#66563c;
+    --lightbrown:#ab9b84;
+}

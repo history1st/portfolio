@@ -17,15 +17,16 @@ $(function(){
 
     /* ======== 스크롤 이벤트 ======== */
     let baseline = -200;// 실제로 화면을 차지하는 면적이 넓은 컨테이너대로 인식하게
-    let con0 = $(".intro_beliefs").offset().top + baseline;
-    let con1 = $(".intro_profile").offset().top + baseline;
-    let con2 = $("#con2_web").offset().top + baseline;
+    let con0 = $(".intro-beliefs").offset().top + baseline;
+    let con1 = $(".intro-profile").offset().top + baseline;
+    let con2 = $("#con2-web").offset().top + baseline;
+    let con3 = $("#con3-contact").offset().top + baseline;
 
     $(window).on("scroll", function(){ 
       let scroll = $(this).scrollTop(); // 현재 화면의 높이
     
-      if(scroll >= con0 && scroll < con1){ // 가치관
-        $(".intro_bg1").addClass("changebg");
+      if(scroll >= con0 && scroll < con1){ // (컨테이너1) 가치관
+        $(".intro-bg1").addClass("changebg");
       } else if(scroll >= con1 && scroll < con2) { // 프로필
         $(".circle").css({"transform":"rotateY(720deg)"});
         $(".career-history .line").addClass("line-active");
@@ -36,7 +37,11 @@ $(function(){
             })
           })
         }, 1000)
-      } else{
+      } else if(scroll >= con2 && scroll < con3){ // (컨테이너2)웹사이트
+        console.log(`할 게 있나?`)
+      } else if(scroll > con1 && scroll > con3){ // (컨테이너3) 의뢰하기
+        console.log(`마지막 컨테이너`)
+        $(".letter").stop().animate({"transition":"1s", "transform":"translateY(0)"});
       }
     })
 
@@ -46,4 +51,88 @@ $(function(){
     //   $(this).siblings("dl").children("dt, dd").stop().slideDown();
     //   console.log(`d`)
     // })
+    
+    /* ======== 슬라이드 ======== */
+    let total = $(".siteinfo > li").length; // 총 이미지 개수
+    let i = 0 // 이미지 순번
+    start();
+
+    /* 페이드 함수 */
+    function fade(){
+        // 정보
+        $(".siteinfo > li").css({opacity: 0, position: "absolute" });
+        $(".siteinfo > li").eq(i).css({opacity: 1, position: "relative" });
+        // 홈페이지 사진
+        $(".center .img-list li").stop().removeClass("active");
+        $(".center .img-list li").eq(i).addClass("active");
+        // $(".center .img-list li").hide();
+        // $(".center .img-list li").eq(i).show();
+        // 배경
+        $(".centerbg li").stop().removeClass("active");
+        $(".centerbg li").eq(i).addClass("active");
+    }
+
+    /* 자동 전환 */
+    function start(){
+        timer = setInterval(function(){
+            if(i == total - 1){
+                i = 0;
+            } else{
+                i++;
+            }
+            // console.log(i); // 확인용이므로 나중에 지울 것
+            fade();
+        }, 3000)
+    }
+
+    /* 다음 버튼 */
+    $(".next").on("click", function(){
+        clearInterval(timer); // 슬라이드쇼 하던 거 멈추기
+        if(i == total - 1){
+            i = 0; // 마지막 장이면 처음으로 되돌린다
+        } else {
+            i++; // 아니면 하나씩 더한다
+        }
+        fade();
+        start();
+    })
+
+    /* 이전 버튼 */
+    $(".prev").on("click", function(){
+        clearInterval(timer);
+        if(i == 0){
+            i = total - 1; // 처음이면은 마지막으로 돌아가야함
+        } else {
+            i = --i; // 아니면 하나씩 빼야함
+        }
+        fade();
+        start();
+    })
+
+    let j = 0;
+    function more(){
+      play = setInterval(function(){
+        if(j == 9){
+          // 초기화
+          j = 0;
+          $(".more span").removeClass("on");
+        } else{
+          $(".more span").eq(j).addClass("on");
+          j++;
+        }
+      }, 400)
+    }
+    more();
+
+    /* 편지지 */
+    $(".envelope").on("mouseover", function(){
+      console.log(`들어옴`);
+      $(".letter").stop().animate({"transition":"1s", "transform":"translateY(-50%)"});
+      clearInterval(play);
+    })
+    $(".envelope").on("mouseout", function(){
+      console.log(`나감`);
+      $(".letter").stop().animate({"transition":"1s", "transform":"translateY(0)"});
+      more();
+    });
 });

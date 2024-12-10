@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>복붙하삼</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/custom.js"></script>
+    <style>
+    section h2{
+        text-align:center;
+        padding-top:40px;
+        height:calc(10vh + 40px);
+        box-sizing:border-box;
+        font-size:90px;
+        font-size:10vh;
+    }
+    .wrap{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        width:100%;
+        height:calc(100vh - (80px + 10vh));
+    }
+    .envelope::before{
+        content:"";
+        z-index:15;
+        position:absolute;
+        left:50%;
+        bottom:-10px;
+        transform:translateX(-50%);
+        width:50vh;
+        height:100%;
+        background-image: url(img/envelope-front.svg);
+        background-position:bottom;
+        background-repeat:no-repeat;
+        background-size:contain;
+    }
+    .envelope{
+        position:relative;
+        width:40vh;
+        height:40vh;
+    }
+    .envelope::after{
+        content:"";
+        z-index:5;
+        position:absolute;
+        left:50%;
+        bottom:-10px;
+        transform:translateX(-50%);
+        width:50vh;
+        height:100%;
+        background-image: url(img/envelope-back.svg);
+        background-position:bottom;
+        background-repeat:no-repeat;
+        background-size:contain;
+    }
+    .letter{
+        z-index:10;
+        position: absolute;
+        padding-top:20px;
+        box-sizing: border-box;
+        width:40vh;
+        height:100%;
+        background-color:#fff;
+        text-align:center;
+    }
+    @keyframes letter{
+        from{transform: translateY(-30vh);}
+        to{transform: translateY(-0);}
+    }
+    .letter h3{
+        position:absolute;
+        left:50%;
+        bottom:10%;
+        transform:translateX(-50%);
+        font-size:30px;
+        font-family:'InkLipquid';
+        font-weight:normal;
+        width:100%;
+    }
+    .letter dl{
+        margin-bottom:10px;
+        /* font-size:3vh; */
+    }
+    .letter dt{
+        font-family:'NanumSquareBold';
+    }
+
+    /* @media(max-width:1200px){
+        .envelope::before{
+            bottom:-10px;
+            width:490px;
+            height:590px;
+        }
+        .envelope{
+            width:450px;
+            height:380px;
+        }
+        .envelope::after{
+            bottom:-10px;
+            width:490px;
+            height:590px;
+        }
+        .letter{
+            padding-top:20px;
+            box-sizing: border-box;
+            width:450px;
+            height:380px;
+        }
+    } */
+    
+    @media(max-width:800px){
+        section h2{
+            font-size:9vw;
+        }
+    }
+    </style>
+</head>
+<body>
+    <section id="con3_contact">
+      <h2>
+        <span>함께</span>하고 싶습니다
+      </h2>
+      <div class="wrap">
+        <div class="envelope">
+            <div class="letter">
+                <dl>
+                    <dt>휴대전화</dt>
+                    <dd>010-3396-7528</dd>
+                </dl>
+                <dl>
+                    <dt>메일</dt>
+                    <dd>to_be_honest@naver.com</dd>
+                </dl>
+                <dl>
+                    <dt>인스타그램</dt>
+                    <dd>hope2cu_</dd>
+                </dl>
+                <h3>기다리고 있겠습니다</h3>
+            </div>
+        </div>
+      </div>
+    </section>
+</body>
+</html>

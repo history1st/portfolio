@@ -18,14 +18,17 @@ body{
     font-family:'NanumSquare';
     overflow-x:hidden;
 }
-a, p, h2, h3, h4, h5, h6, ul, dl, li, dd, dt{
+section{
+    overflow: hidden;
+}
+a, p, h2, h3, h4, h5, h6, ul, dl, li, dd, dt, footer{
     transform:skew(-0.5deg);
-    color:var(--fontcolor);
+    color:var(--fontbrown);
 }
 h2 span{
     font-family:'InkLipquid';
     font-weight: normal;
-    color:var(--maincolor);
+    color:var(--maingreen);
 }
 
 /* font */
@@ -35,6 +38,7 @@ h2 span{
     font-weight: normal;
     font-style: normal;
 }
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
 
 /* 
 폰트 이름 모음
@@ -50,6 +54,22 @@ font-family: 'NanumSquareAcr';
 */
 
 :root{
-    --maincolor:#739223;
-    --fontcolor:#48443e;
+    --maingreen:#739223;
+    --fontbrown:#48443e;
+    --darkbrown:#66563c;
+    --lightbrown:#ab9b84;
+}
+
+dl, p, footer{
+    font-size:16px;
+}
+@media(max-width:1200px){
+    dl, p, footer{
+        font-size:14px;
+    }
+}
+@media(max-width:800px){
+    dl, p, footer{
+        font-size:13px;
+    }
 }
