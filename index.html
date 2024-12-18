@@ -11,9 +11,14 @@
     <!-- css -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/index.css">
+    <!-- 제이쿼리 -->
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/jquery.transform2d.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="js/custom.js"></script>
+    <!-- <script src="js/test.js"></script> -->
 </head>
 <body>
     <!--======== 헤더 ========-->
@@ -32,35 +37,55 @@
                     <a href="#con2-web">웹페이지</a>
                 </li>
                 <li>
-                    <a href="#">일러스트</a>
+                    <a href="#con3-illustration">일러스트</a>
                 </li>
                 <li>
-                    <a href="#con3-contact">의뢰하기</a>
+                    <a href="#con4-contact">의뢰하기</a>
                 </li>
             </ul>
-            <div class="close">
-                <i class="fa-solid fa-bars"></i>
+            <div class="menu">
+                <a href="javascript:;">
+                    <i class="fa-solid fa-bars"></i>
+                </a>
             </div>
         </div>
     </header>
+    <!--======= 내비게이션 =======-->
+    <nav>
+        <ul>
+            <li>
+                <a href="#con1-intro">소개말</a>
+            </li>
+            <li>
+                <a href="#con2-web">웹페이지</a>
+            </li>
+            <li>
+                <a href="#con3-illustration">일러스트</a>
+            </li>
+            <li>
+                <a href="#con4-contact">의뢰하기</a>
+            </li>
+        </ul>
+        <div class="close">
+            <a href="javascript:;">
+                <i class="fa-solid fa-xmark"></i>
+            </a>
+        </div>
+    </nav>
     <!--======= 비주얼 =======-->
     <div id="visual">
         <h2>
-            웹퍼블리셔<br>
+            웹디자이너<br>
             <span>장윤나</span>입니다
         </h2>
         <img class="vis-profile" src="img/vis-profile.png" alt="장윤나의 사진">
         <div class="green"></div>
     </div>
     <!--======= (컨테이너1) 자기소개 =======-->
-    <!-- 
-    intro-beliefs :: position:relative, 너비 100%, 높이 100vh, overflow:hidden
-    div :: position:absolute, 너비 100%, 높이 100vh, background-attachment:fixed;
-    -->
     <section id="con1-intro">
         <!-- 가치관 -->
         <div class="intro-beliefs">
-            <h2><span>변하지 않는 가치</span>가 있다고 믿습니다.</h2>
+            <h2><span>사람의 가치</span>를 믿습니다.</h2>
             <div class="intro-bg1"></div>
             <div class="intro-bg2"></div>
         </div>
@@ -216,13 +241,35 @@
             </ul>
         </div>
     </section>
-    <!--======= (컨테이너3) 의뢰하기 =======-->
-    <section id="con3-contact">
+    <!--======= (컨테이너3) 일러스트 =======-->
+    <section id="con3-illustration">
+        <h2 class="title">
+            <span>무엇이든</span><br>
+            그리겠습니다.
+        </h2>
+        <div class="blind"></div>
+        <ul>
+            <li>
+                <img src="img/illust-palace.jpg" alt="경복궁. 데모용">
+            </li>
+            <li>
+                <img src="img/illust-newyear2025.jpg" alt="2025년">
+            </li>
+            <li>
+                <img src="img/illust-autumn.jpg" alt="가을. 데모용">
+            </li>
+            <li>
+                <img src="img/illust-parentsday.jpg" alt="어버이날">
+            </li>
+        </ul>
+    </section>
+    <!--======= (컨테이너4) 의뢰하기 =======-->
+    <section id="con4-contact">
         <h2>
-          <span>함께</span>하고 싶습니다
+            <span>함께</span>하고 싶습니다
         </h2>
         <div class="wrap">
-          <div class="envelope">
+            <div class="envelope">
                 <p class="more">
                     <span>마</span>
                     <span>우</span>
@@ -234,27 +281,26 @@
                     <span>세</span>
                     <span>요</span>
                 </p>
-              <div class="letter">
-                <h3>기다리겠습니다</h3>
-                  <dl>
+                <div class="letter">
+                    <h3>기다리겠습니다</h3>
+                    <dl>
                         <dt>인스타그램</dt>
                         <dd>@hope2cu_</dd>
-                  </dl>
-                  <dl>
+                    </dl>
+                    <dl>
                         <dt>메일</dt>
                         <dd>to-be-honest@naver.com</dd>
-                  </dl>
-                  <dl>
+                    </dl>
+                    <dl>
                         <dt>휴대전화</dt>
                         <dd>010-3396-7528</dd>
-                  </dl>
-              </div>
-          </div>
+                    </dl>
+                </div>
+            </div>
         </div>
         <div class="diagram-box">
             <div class="empty-circle"></div>
-            <svg version="1.1" id="dashedline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 289.83 256" style="enable-background:new 0 0 289.83 256;" xml:space="preserve">
+            <svg version="1.1" id="dashedline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 289.83 256" style="enable-background:new 0 0 289.83 256;" xml:space="preserve">
             <g>
                 <g>
                     <path class="st1" d="M288.33,19.49c-0.22,55.01-22.31,218.24-274.85,234.37"/>
@@ -267,5 +313,8 @@
     <footer>
         Copyright 2024. 장윤나 All rights reserved.
     </footer>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+    </script>
 </body>
 </html>

@@ -48,11 +48,57 @@ header li:hover a:after {
     transition:0.7s;
     width: 100%;
 }
-.close{
+.menu{
     display:none;
 }
 
-/* ------- 비주얼  ------- */
+/* ------- 내비게이션 ------- */
+nav{
+    position:fixed;
+    top:0;
+    right:0;
+    z-index:150;
+    width:100%;
+    height:100vh;
+    /* display:flex;
+    align-items:center; */
+    /* border-bottom:1px solid var(--darkbrown); */
+    background-color:#efe4d4;
+    /* background-color:var(--fontbrown); */
+    display:none;
+}
+nav ul{
+    position:absolute;
+    top:50%;
+    left:5%;
+    transform:translateY(-50%);
+    font-size:10vw;
+    font-family: 'NanumSquareBold';
+}
+nav ul a{
+    color:transparent;
+    -webkit-text-stroke:3px var(--fontbrown);
+}
+nav ul a:focus, nav ul a:hover{
+    color:var(--fontbrown);
+    -webkit-text-stroke:transparent;
+    transition:0.5s;
+}
+nav .close{
+    position: absolute;
+    top:5%;
+    right:5%;
+    font-size:50px;
+}
+nav .close:hover i{
+    transform:rotate(180deg);
+    transition:1s;
+}
+/* nav a{
+    color:#efe4d4;
+} */
+
+/* ------- 비주얼 ------- */
 #visual{
     padding-top:70px;
     box-sizing:border-box;
@@ -247,7 +293,7 @@ section h2{
     background-color:#5f5340;
     border-radius:50%;
     text-align:center;
-    font-size:1.5vh;
+
     /* animation:myinfo 1s 1 ease-out; */
     transform:rotateY(180deg);
     transition:2s;
@@ -258,6 +304,7 @@ section h2{
 } */
 .circle h3, .circle p{
     color:#efe4d4;
+    font-size:1.5vh;
 }
 .title{
     z-index:15;
@@ -471,13 +518,37 @@ section h2{
     opacity: 1;
     position: relative;
 }
-/* ------- (컨테이너3) 의뢰하기 ------- */
-#con3-contact{
+/* ------- (컨테이너3) 일러스트 ------- */
+#con3-illustration{
+    overflow: hidden;
+}
+#con3-illustration ul{
+    position:absolute;
+    top:20vh;
+    bottom:auto;
+    gap:20px;
+    display:flex;
+}
+#con3-illustration li{
+    width:30vw;
+    height:40vh;
+    /* padding:0px 30px; */
+    box-sizing:border-box;
+    flex-shrink:0;
+}
+#con3-illustration li img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* ------- (컨테이너4) 의뢰하기 ------- */
+#con4-contact{
     padding-top:10vh;
     box-sizing:border-box;
     overflow:hidden;
 }
-#con3-contact h2{
+#con4-contact h2{
     z-index:5;
     text-align:center;
 }
@@ -664,7 +735,7 @@ footer{
     header li{
         cursor:pointer;
     }
-    .close{
+    .menu{
         display:block;
         font-size:25px;
         color:var(--fontbrown);
@@ -788,6 +859,11 @@ footer{
         width:45vh;
         /* height:110%; */
     }
+    /* ------- (컨테이너3) 일러스트 ------- */
+    #con3-illustration ul{
+        top:auto;
+        bottom:20vh;
+    }
 }
 
 
@@ -897,12 +973,12 @@ footer{
     #con2-web .siteinfo{
         right:-20vw;
     }
-    /* ------- (컨테이너3) 의뢰하기 ------- */
-    /* #con3-contact{
+    /* ------- (컨테이너4) 의뢰하기 ------- */
+    /* #con4-contact{
         padding-top:10vh;
         box-sizing:border-box;
     }
-    #con3-contact h2{
+    #con4-contact h2{
         text-align:center;
     } */
     .wrap{

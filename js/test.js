@@ -35,9 +35,13 @@ $(function(){
     
       if(scroll >= con0 && scroll < con1){ // (컨테이너1) 가치관
         $(".intro-bg1").addClass("changebg");
+        $(".intro-beliefs").stop().slideDown();
+        $(".intro-profile").stop().slideUp();
       } else if(scroll >= con1 && scroll < con2) { // 프로필
         $(".circle").css({"transform":"rotateY(720deg)"});
         $(".career-history .line").addClass("line-active");
+        $(".intro-profile").stop().slideDown();
+        $(".intro-beliefs").stop().slideUp();
         setTimeout(function(){ // 목록 순차적으로 등장
           $(".career-history li:nth-child(1)").stop().animate({"opacity":"1", "margin-right":"10px"}, function(){
             $(".career-history li:nth-child(2)").stop().animate({"opacity":"1", "margin-right":"10px"}, function(){
@@ -46,11 +50,16 @@ $(function(){
           })
         }, 1000)
       } else if(scroll >= con2 && scroll < con4){ // (컨테이너2)웹사이트
-        console.log(`두번째 컨테이너`)
+        console.log(`두번째 컨테이너`);
+        $("#con2-web").stop().slideDown();
+        $("#con3-illustration").stop().slideUp();
       } else if(scroll > con2 && scroll < con3){ // (컨테이너3) 일러스트
-        console.log(`세번째 컨테이너`)
+        console.log(`세번째 컨테이너`);
+        $("#con3-illustration").stop().slideDown();
+        $("#con4-contact").stop().slideUp();
       } else if(scroll > con4){// (컨테이너4) 의뢰하기
         console.log(`네번째 컨테이너`)
+        $("#con4-contact").stop().slideDown();
         $(".letter").stop().animate({"transition":"1s", "transform":"translateY(0)"});
       }
     })
